@@ -1,0 +1,13 @@
+<div *ngIf="nav.visible" class="p-mb-5">
+    <p-menubar [model]="items">
+        <ng-template pTemplate="start">
+            <img src="assets/helloteca-logo.png" height="40" class="p-mr-2 cursor-pointer" [routerLink]="['/']">
+        </ng-template>
+
+        <ng-template pTemplate="end">
+            <img src="assets/user.png" class="user-image-menu cursor-pointer" (click)="menu.toggle($event)">
+        </ng-template>
+    </p-menubar>
+
+    <p-menu #menu [model]="profileItems" [popup]="true"></p-menu>
+</div>

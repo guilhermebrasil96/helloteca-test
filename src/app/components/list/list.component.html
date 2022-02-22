@@ -1,0 +1,43 @@
+<div class="container">
+
+    <div *ngIf="users">
+        <form [formGroup]="update_user" (ngSubmit)="onSubmit(update_user)">
+            <p>
+                Nombre <input formControlName="name_input" type="text" name="name" id="name" pInputText
+                    placeholder="{{ users.name }}" />
+            <p>
+                Apellidos <input formControlName="surname_input" type="text" name="surname" id="surname" pInputText
+                    placeholder="{{ users.surname }}" />
+            <p>
+                Email <input formControlName="email_input" type="text" name="email" id="email" pInputText
+                    placeholder="{{ users.email }}" />
+            <p>
+                Teléfono <input formControlName="phone_input" type="text" name="phone" id="phone" pInputText
+                    placeholder="{{ users.phone }}" />
+            </p>
+            <p>
+                Edad <input formControlName="age_input" type="text" name="age" id="age" pInputText
+                    placeholder="{{ users.age }}" />
+            </p>
+            <p>
+                Importe <input formControlName="loan_amount_input" type="float" name="loan_amount" id="loan_amount"
+                    pInputText placeholder="Min.10 y Max.999" />
+            </p>
+            <p>Fecha a conseguir el préstamo:
+                <p-calendar formControlName="loan_date_input" type="float" name="loan_date" id="loan_date" dateFormat="dd/mm/yy" [minDate]="minimumDate"></p-calendar>
+            </p>
+            <p>
+                Tiempo a devolver (en años)
+                <p-dropdown [options]="loan_weeks" type="text" name="loan_weeks" id="loan_weeks"
+                    formControlName="loan_weeks_input">
+                </p-dropdown>
+            </p>
+
+            <p>Aceptar términos y <a href="https://cloudframework.io/terminos-y-condiciones/" style="text-decoration: none;" target="_blank"> condiciones </a>
+                <p-checkbox formControlName="check_input" [binary]="true"></p-checkbox>
+            </p>
+            <button pButton type="submit" class="p-button-info">Enviar solicitud</button>
+        </form>
+    </div>
+
+</div>
